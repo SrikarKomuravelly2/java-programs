@@ -1,0 +1,36 @@
+package DataStructures;
+
+import java.util.Arrays;
+import java.util.Comparator;
+import java.util.List;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
+
+public class EmployeSortByProperties {
+	
+	public static void main(String[] args) {
+		
+		List<Employee> employeeList= Arrays.asList(
+				new Employee("srikar", 20000),
+				new Employee("vk", 250000),
+				new Employee("srikar", 30000),
+				new Employee("msd", 20000),
+				new Employee("srikar", 350000)
+				);
+		
+
+		
+		//using streams
+		
+		List<Employee> employeeList1 =employeeList.stream().sorted(Comparator.comparing(Employee::getEmpName)
+				.thenComparing(Employee::getEmpSalary)).collect(Collectors.toList());
+		
+		System.out.println(employeeList1);
+		
+		
+		
+	}
+	
+		
+
+}
